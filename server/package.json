@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "build": "rm -rf build && cd ../client && npm run build && cp -r build ../server/",
+    "build:ui": "rm -rf build && cd ../client && npm run build && cp -r build ../server/",
     "lint": "eslint ."
   },
   "author": "",
@@ -27,6 +27,5 @@
   "devDependencies": {
     "eslint": "^7.16.0",
     "nodemon": "^2.0.6"
-  },
-  "heroku-run-build-script": false
+  }
 }

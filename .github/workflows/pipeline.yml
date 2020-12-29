@@ -22,7 +22,7 @@ jobs:
       - name: Lint Backend
         run: cd server && npm run lint
       - name: Build
-        run: cd server && npm run build
+        run: cd server && npm run build:ui
       - name: Heroku Deploy
         uses: akhileshns/heroku-deploy@v3.8.8
         with:
