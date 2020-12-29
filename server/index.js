@@ -21,7 +21,7 @@ const server = new ApolloServer({
 const app = express()
 app.use(cors())
 app.use(express.static('build'))
-server.applyMiddleware({ app })
+server.applyMiddleware({ app, path: '/graphql' })
 
 app.get('/health', (req, res) => {
   res.send('OK')
