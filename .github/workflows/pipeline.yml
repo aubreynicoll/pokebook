@@ -29,6 +29,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "young-lowlands-97512"
           heroku_email: "aubrey.nicoll@gmail.com"
+          appdir: "server"
           healthcheck: "https://young-lowlands-97512.herokuapp.com/health"
           checkstring: "OK"
           rollbackonhealthcheckfailed: true
