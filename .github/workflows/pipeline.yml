@@ -1,0 +1,35 @@
+name: Deployment Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment_pipeline:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      - name: Install Frontend Deps
+        run: cd client && npm install
+      - name: Lint Frontend
+        run: cd client && npm run lint
+      - name: Install Backend Deps
+        run: cd server && npm install
+      - name: Lint Backend
+        run: cd server && npm run lint
+      - name: Build
+        run: cd server && npm run build:ui
+      - name: Heroku Deploy
+        uses: akhileshns/heroku-deploy@v3.8.8
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "young-lowlands-97512"
+          heroku_email: "aubrey.nicoll@gmail.com"
+          appdir: "server"
+          healthcheck: "https://young-lowlands-97512.herokuapp.com/health"
+          checkstring: "OK"
+          rollbackonhealthcheckfailed: true
