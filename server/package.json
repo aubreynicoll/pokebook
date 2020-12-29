@@ -25,6 +25,7 @@
     "graphql": "^15.4.0"
   },
   "devDependencies": {
+    "eslint": "^7.16.0",
     "nodemon": "^2.0.6"
   }
 }
