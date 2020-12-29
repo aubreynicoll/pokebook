@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  hello_world:
+  hello_world_job:
     runs-on: ubuntu-18.04
     steps:
       - name: hello world
