@@ -6,6 +6,7 @@ on:
 
 jobs:
   healthcheck_ping:
+    runs-on: ubuntu-18.04
     steps:
     - name: Check the deployed service URL
       uses: jtalk/url-health-check-action@2ff10af730f912a7b51f4e3868d9cb30de170a6b

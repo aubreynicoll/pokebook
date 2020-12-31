@@ -33,7 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
           DEFAULT_BUMP: patch
-      - name: Strike "**/build" from .gitignore
+      - name: Strike **/build from .gitignore
         if: ${{ github.event_name == 'push' && contains(join(github.event.commits.*.message, ' '), '#skip') == false }}
         run: sed -i '/^\*\*\/build$/d' .gitignore
       - name: Heroku Deploy
