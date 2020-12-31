@@ -33,7 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
           DEFAULT_BUMP: patch
-      - name: Strike **/build from .gitignore
+      - name: Strike "**/build" from .gitignore
         if: ${{ github.event_name == 'push' && contains(join(github.event.commits.*.message, ' '), '#skip') == false }}
         run: sed -i '/^\*\*\/build$/d' .gitignore
       - name: Heroku Deploy
@@ -47,3 +47,12 @@ jobs:
           healthcheck: "https://young-lowlands-97512.herokuapp.com/health"
           checkstring: "OK"
           rollbackonhealthcheckfailed: true
+      - name: Slack notification
+        if: always()
+        uses: 8398a7/action-slack@b6a4c791ce0c137843eb11e038f855cf567014dc
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        
