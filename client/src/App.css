@@ -16,6 +16,35 @@ a {
   margin-bottom: 2em;
 }
 
+.LoadingScreen-root {
+  text-align: center;
+}
+
+.LoadingScreen-img {
+  width: 10%;
+  animation: roll 2s infinite;
+  animation-timing-function: linear;
+  /* transform: rotate(30deg); */
+}
+
+@keyframes roll {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  25% {
+    transform: scale(1.25) rotate(90deg);
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+  }
+  75% {
+    transform: scale(1.25) rotate(270deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
 .PokemonCard {
   text-align: center;
   font-size: 1.2rem;

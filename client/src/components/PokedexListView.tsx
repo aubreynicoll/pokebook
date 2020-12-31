@@ -4,6 +4,7 @@ import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import { FetchPokedexListView } from './__generated__/FetchPokedexListView';
+import LoadingScreen from './LoadingScreen';
 
 const FETCH_POKEDEX_LIST_VIEW = gql`
   query FetchPokedexListView {
@@ -18,7 +19,7 @@ const FETCH_POKEDEX_LIST_VIEW = gql`
 const PokedexView: React.FC = () => {
   const { loading, data: pokemonList, error } = useQuery<FetchPokedexListView>(FETCH_POKEDEX_LIST_VIEW);
   
-  if (loading) return null;
+  if (loading) return <LoadingScreen />;
   if (error || !pokemonList) return <div>ERROR</div>;
   return (
     <Grid container

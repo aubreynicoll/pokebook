@@ -4,6 +4,7 @@ import PokemonCard from './PokemonCard';
 import { useParams } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 import { FetchPokedexDetailView, FetchPokedexDetailViewVariables } from './__generated__/FetchPokedexDetailView';
+import LoadingScreen from './LoadingScreen';
 
 const FETCH_POKEDEX_DETAIL_VIEW = gql`
   query FetchPokedexDetailView($id: Int!) {
@@ -27,7 +28,7 @@ const PokemonDetailView: React.FC = () => {
     variables: { id: Number(id) }
   });
 
-  if (loading) return null;
+  if (loading) return <LoadingScreen />;
   if (error || !data || !data.pokemon) return <div>ERROR</div>;
   return (
     <Box>
