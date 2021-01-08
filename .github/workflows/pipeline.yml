@@ -16,26 +16,35 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "14.x"
+
       - name: Install Frontend Deps
         run: cd client && npm install
+
       - name: Lint Frontend
         run: cd client && npm run lint
+
       - name: Install Backend Deps
         run: cd server && npm install
+
       - name: Lint Backend
         run: cd server && npm run lint
+
       - name: Build UI
         run: cd server && npm run build:ui
+
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' && contains(join(github.event.commits.*.message, ' '), '#skip') == false }}
         uses: anothrNick/github-tag-action@eca2b69f9e2c24be7decccd0f15fdb1ea5906598
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BRANCHES: main
           WITH_V: true
           DEFAULT_BUMP: patch
+
       - name: Strike **/build from .gitignore
         if: ${{ github.event_name == 'push' && contains(join(github.event.commits.*.message, ' '), '#skip') == false }}
         run: sed -i '/^\*\*\/build$/d' .gitignore
+
       - name: Heroku Deploy
         if: ${{ github.event_name == 'push' && contains(join(github.event.commits.*.message, ' '), '#skip') == false }}
         uses: akhileshns/heroku-deploy@v3.8.8
@@ -47,6 +56,7 @@ jobs:
           healthcheck: "https://young-lowlands-97512.herokuapp.com/health"
           checkstring: "OK"
           rollbackonhealthcheckfailed: true
+
       - name: Slack notification
         if: always()
         uses: 8398a7/action-slack@b6a4c791ce0c137843eb11e038f855cf567014dc
