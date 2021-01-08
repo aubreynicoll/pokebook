@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
-import { Container, AppBar, Toolbar, IconButton, Button, ThemeProvider, createMuiTheme } from '@material-ui/core';
+import { Container, AppBar, Toolbar, IconButton, Button, ThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
 import './App.css';
 
 import PokedexView from './components/PokedexListView';
@@ -15,6 +15,9 @@ const muiTheme = createMuiTheme({
     },
     secondary: {
       main: '#3B4CCA'
+    },
+    background: {
+      default: '#f5f5dc'
     }
   },
   typography: {
@@ -25,7 +28,8 @@ const muiTheme = createMuiTheme({
 const App: React.FC = () => {
   return (
     <ThemeProvider theme={muiTheme}>
-      <Container>
+      <CssBaseline />
+      <Container color="background">
 
         <AppBar position="static">
           <Toolbar>
