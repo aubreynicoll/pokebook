@@ -12,6 +12,7 @@ export interface FetchPokedexListView_allPokemon {
   id: number;
   name: string;
   artwork: string;
+  types: string[];
 }
 
 export interface FetchPokedexListView {

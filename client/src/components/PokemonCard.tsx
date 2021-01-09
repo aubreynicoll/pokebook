@@ -3,7 +3,7 @@ import React from 'react';
 import { Pokemon } from '../types';
 
 interface Props {
-  pokemon: Pick<Pokemon, 'id' | 'name' | 'artwork'>;
+  pokemon: Pick<Pokemon, 'id' | 'name' | 'artwork' | 'types'>;
 }
 
 const PokedexTile: React.FC<Props> = ({ pokemon }) => {
@@ -14,14 +14,25 @@ const PokedexTile: React.FC<Props> = ({ pokemon }) => {
     <Box className="PokemonCard-root" mx="auto">
       <Paper elevation={4}>
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+
           <Box>
             <img className="PokemonCard-img" src={pokemon.artwork} />
           </Box>
+
           <Box>
             <Typography variant="body1">
               {displayId} {displayName}
             </Typography>
           </Box>
+
+          <Box display="flex" flexDirection="row">
+            {pokemon.types.map((type, index) => (
+              <Box key={index} component="span" className={`PokemonCard-typebutton ${type}`} m={1} px={4} py={2}>
+                {type}
+              </Box>
+            ))}
+          </Box>
+
         </Box>
       </Paper>
     </Box>
