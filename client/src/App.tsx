@@ -21,7 +21,13 @@ const muiTheme = createMuiTheme({
     }
   },
   typography: {
-    fontSize: 14
+    htmlFontSize: 10,
+    body1: {
+      fontSize: '1.6rem'
+    },
+    body2: {
+      fontSize: '1.4rem'
+    }
   }
 });
 
