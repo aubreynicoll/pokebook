@@ -30,6 +30,7 @@ const PokemonDetailView: React.FC = () => {
 
   if (loading) return <LoadingScreen />;
   if (error || !data || !data.pokemon) return <div>ERROR</div>;
+  
   return (
     <Box>
       <PokemonCard pokemon={data?.pokemon} />
