@@ -3,7 +3,7 @@ import React from 'react';
 import { Pokemon } from '../types';
 
 interface Props {
-  pokemon: Pick<Pokemon, 'id' | 'name' | 'artwork'>;
+  pokemon: Pick<Pokemon, 'id' | 'name' | 'artwork' | 'types'>;
 }
 
 const PokedexTile: React.FC<Props> = ({ pokemon }) => {

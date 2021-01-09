@@ -12,6 +12,7 @@ const FETCH_POKEDEX_LIST_VIEW = gql`
       id
       name
       artwork
+      types
     }
   }
 `;
