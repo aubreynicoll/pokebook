@@ -1,9 +1,5 @@
 html {
-  font-size: 100%;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
+  font-size: 62.5%;
 }
 
 a {
@@ -46,7 +42,6 @@ a {
 
 .PokemonCard {
   text-align: center;
-  font-size: 1.2rem;
   width: 350px;
   height: 400px;
   background-color: white;
