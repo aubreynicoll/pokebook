@@ -8,7 +8,7 @@ a {
 }
 
 .MuiAppBar-root {
-  margin-bottom: 2em;
+  margin-bottom: 3.2rem;
 }
 
 .LoadingScreen-root {
@@ -40,21 +40,9 @@ a {
   }
 }
 
-.PokemonCard {
-  text-align: center;
-  width: 350px;
-  height: 400px;
-  background-color: white;
-  box-shadow: 2px 5px 5px rgba(0,0,0,0.3);
-  transition: all 0.25s ease;
-}
-
-.PokedexListView-Grid-item .PokemonCard:hover {
-  transform: scale(1.1);
-  box-shadow: 5px 15px 20px rgba(0,0,0,0.25);
-}
-
-.PokemonCardImg {
+.PokemonCard-img {
+  display: block;
+  margin: 0 auto;
   width: 100%;
 }
 
