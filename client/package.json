@@ -48,7 +48,8 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "@types/react-router-dom": "^5.1.6"
+    "@types/react-router-dom": "^5.1.6",
+    "eslint-config-airbnb-typescript": "^12.0.0"
   },
   "proxy": "http://localhost:4000"
 }

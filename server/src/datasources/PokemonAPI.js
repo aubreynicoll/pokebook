@@ -1,12 +1,12 @@
-const { RESTDataSource } = require('apollo-datasource-rest')
+const { RESTDataSource } = require('apollo-datasource-rest');
 
 class PokemonAPI extends RESTDataSource {
   constructor() {
-    super()
-    this.baseURL = 'https://pokeapi.co/api/v2'
+    super();
+    this.baseURL = 'https://pokeapi.co/api/v2';
   }
 
-  pokemonReducer(object) {
+  static pokemonReducer(object) {
     return {
       id: object.id,
       name: object.name,
@@ -14,27 +14,26 @@ class PokemonAPI extends RESTDataSource {
       artwork: object.sprites.other['official-artwork'].front_default,
       height: object.height,
       weight: object.weight,
-      moves: object.moves.map(({ move }) => move.name)
-    }
+      moves: object.moves.map(({ move }) => move.name),
+    };
   }
 
   async getAllPokemon() {
     const params = {
-      limit: 150
-    }
-    const { results } = await this.get('/pokemon', params)
+      limit: 150,
+    };
+    const { results } = await this.get('/pokemon', params);
 
-    const data = await Promise.all(results.map(({ url }) => this.get(url)))
+    const data = await Promise.all(results.map(({ url }) => this.get(url)));
 
-    return data.map(object => this.pokemonReducer(object))
+    return data.map((object) => PokemonAPI.pokemonReducer(object));
   }
 
   async getPokemonById(id) {
-    const data = await this.get(`/pokemon/${id}/`)
+    const data = await this.get(`/pokemon/${id}/`);
 
-    return this.pokemonReducer(data)
+    return PokemonAPI.pokemonReducer(data);
   }
-
 }
 
-module.exports = PokemonAPI
+module.exports = PokemonAPI;

@@ -3,7 +3,8 @@
       "eslint:recommended",
       "plugin:@typescript-eslint/recommended",
       "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      "airbnb-typescript"
   ],
   "plugins": ["@typescript-eslint", "react"],
   "env": {
@@ -18,7 +19,15 @@
     ],
     "@typescript-eslint/no-explicit-any": 1,
     "no-case-declarations": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "@typescript-eslint/indent": [
+      "error",
+      2
+    ],
+    "@typescript-eslint/quotes": [
+      "error",
+      "double"
+    ]
   },
   "settings": {
     "react": {
