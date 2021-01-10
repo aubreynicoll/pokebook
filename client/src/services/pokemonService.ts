@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { Pokemon } from '../types';
+import { Pokemon } from "../types";
 
-const baseUrl = 'https://pokeapi.co/api/v2';
+const baseUrl = "https://pokeapi.co/api/v2";
 
 interface NamedAPIResourceList {
   count: number;
@@ -19,8 +19,8 @@ interface NamedAPIResource {
 const getAll = async (): Promise<Pokemon[]> => {
   const params = {
     params: {
-      limit: 150
-    }
+      limit: 150,
+    },
   };
 
   const { data: { results } } = await axios
@@ -28,7 +28,7 @@ const getAll = async (): Promise<Pokemon[]> => {
 
   const urls = results.map(({ url }) => url.slice(0, url.length - 1));
 
-  const response = await axios.all(urls.map(url => axios.get<Pokemon>(url)));
+  const response = await axios.all(urls.map((url) => axios.get<Pokemon>(url)));
 
   const pokemon = response.map(({ data }) => data);
 
@@ -36,5 +36,5 @@ const getAll = async (): Promise<Pokemon[]> => {
 };
 
 export default {
-  getAll
+  getAll,
 };

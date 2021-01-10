@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import App from "./App";
 
 const client = new ApolloClient({
-  uri: '/graphql',
-  cache: new InMemoryCache()
+  uri: "/graphql",
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(
@@ -14,6 +14,6 @@ ReactDOM.render(
     <Router>
       <App />
     </Router>
-  </ApolloProvider>, 
-  document.getElementById('root')
+  </ApolloProvider>,
+  document.getElementById("root"),
 );
