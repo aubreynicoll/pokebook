@@ -40,6 +40,17 @@ a {
   }
 }
 
+.PokemonCard-root {
+  max-width: 320px;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.PokedexListView-Grid-item .PokemonCard-root:hover {
+  transform: scale(1.1);
+  box-shadow: 5px 15px 20px rgba(0,0,0,0.25);
+}
+
 .PokemonCard-img {
   display: block;
   margin: 0 auto;
