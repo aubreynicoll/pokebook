@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Box, Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import PokemonCard from "./PokemonCard";
@@ -27,7 +27,7 @@ const PokedexView: React.FC = () => {
   if (loading) return <LoadingScreen />;
   if (error || !pokemonList) return <div>ERROR</div>;
   return (
-    <div>
+    <Box>
       <Grid
         container
         direction="row"
@@ -50,7 +50,7 @@ const PokedexView: React.FC = () => {
           </Grid>
         ))}
       </Grid>
-    </div>
+    </Box>
   );
 };
 

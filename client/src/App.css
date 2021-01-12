@@ -40,8 +40,17 @@ a {
   }
 }
 
+.PokedexDetailView-root {
+  height: 412px;
+}
+
+.PokemonFacts-root {
+  width: 70%;
+}
+
 .PokemonCard-root {
-  max-width: 320px;
+  width: 320px;
+  height: 412px;
   text-align: center;
   transition: all 0.25s ease;
 }
@@ -151,4 +160,9 @@ a {
 .Footer {
   margin-top: 4rem;
   text-align: right;
+}
+
+
+.h-full {
+  height: 100%;
 }
