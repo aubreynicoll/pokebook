@@ -5,6 +5,7 @@ import { gql, useQuery } from "@apollo/client";
 import PokemonCard from "./PokemonCard";
 import { FetchPokedexDetailView, FetchPokedexDetailViewVariables } from "./__generated__/FetchPokedexDetailView";
 import LoadingScreen from "./LoadingScreen";
+import PokemonFacts from "./PokemonFacts";
 
 const FETCH_POKEDEX_DETAIL_VIEW = gql`
   query FetchPokedexDetailView($id: Int!) {
@@ -36,8 +37,11 @@ const PokemonDetailView: React.FC = () => {
   if (error || !data || !data.pokemon) return <div>ERROR</div>;
 
   return (
-    <Box>
+    <Box position="relative" className="PokedexDetailView-root" display="flex" flexDirection="row" justifyContent="space-between" alignItems="center">
+
       <PokemonCard pokemon={data?.pokemon} />
+      <PokemonFacts pokemon={data?.pokemon} />
+
     </Box>
   );
 };
