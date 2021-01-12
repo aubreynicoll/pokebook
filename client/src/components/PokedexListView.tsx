@@ -27,28 +27,30 @@ const PokedexView: React.FC = () => {
   if (loading) return <LoadingScreen />;
   if (error || !pokemonList) return <div>ERROR</div>;
   return (
-    <Grid
-      container
-      direction="row"
-      justify="space-between"
-      alignItems="center"
-      spacing={10}
-    >
-
-      {pokemonList.allPokemon.map((pokemon) => (
-        <Grid
-          item
-          className="PokedexListView-Grid-item"
-          xs={4}
-          key={pokemon.id}
-        >
-          <Link to={`/pokemon/${pokemon.id}`}>
-            <PokemonCard pokemon={pokemon} />
-          </Link>
-        </Grid>
-      ))}
-
-    </Grid>
+    <div>
+      <Grid
+        container
+        direction="row"
+        justify="space-between"
+        alignItems="center"
+        spacing={10}
+      >
+        {pokemonList.allPokemon.map((pokemon) => (
+          <Grid
+            item
+            className="PokedexListView-Grid-item"
+            xs={12}
+            md={6}
+            lg={4}
+            key={pokemon.id}
+          >
+            <Link to={`/pokemon/${pokemon.id}`}>
+              <PokemonCard pokemon={pokemon} />
+            </Link>
+          </Grid>
+        ))}
+      </Grid>
+    </div>
   );
 };
 

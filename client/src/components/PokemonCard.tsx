@@ -11,7 +11,7 @@ const PokedexTile: React.FC<Props> = ({ pokemon }) => {
   const displayName = pokemon.name.slice(0, 1).toUpperCase() + pokemon.name.slice(1);
 
   return (
-    <Box className="PokemonCard-root" mx="auto">
+    <Box className="PokemonCard-root" m="auto">
       <Paper elevation={4}>
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
 
