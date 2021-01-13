@@ -1,16 +1,24 @@
+![PokéBook screenshot](https://i.imgur.com/Ng1JfIh.png)
+
 # PokéBook
 
 The Unofficial Pokémon-Themed Social Media Network
 
+### We're on Heroku!
+
+Visit us: [https://young-lowlands-97512.herokuapp.com/](https://young-lowlands-97512.herokuapp.com/)
+
 ## Motivation
 
 PokéBook is a non-commercial project for use in my personal portfolio.\
-The project's primary function is to showcase my proficiency with the technologies utilized within.
+The project's primary function is to showcase my proficiency with the technologies used within.
 
 ## Technologies Utilized
 
 * Typescript
 * React
+* Material-UI
+* GraphQL
 * And more on the way...
 
 ## Features
@@ -19,13 +27,7 @@ PokéBook is a work-in-progress.\
 My first target is to develop a working Pokédex that includes the original 150 Pokémon.\
 Later, I plan on adding authentication and user profiles.
 
-## How to Use
+## Credit
 
-A local instance of PokéBook would be started by running the following commands:
-1. `git clone https://github.com/aubreynicoll/pokebook-frontend`
-2. `cd pokebook-frontend`
-3. `npm install`
-4. `npm start`
-
-However, this assumes you are running a local instance of the server.\
-In the future, I will be pushing PokéBook to Heroku for demo purposes. I'll be sure to add a link when I do!
+A huge thank you to the crew at [pokeapi.co](https://pokeapi.co/)!\
+All Pokémon and associated IP are trademarks of Nintendo.
