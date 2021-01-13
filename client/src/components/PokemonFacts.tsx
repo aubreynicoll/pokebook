@@ -7,9 +7,9 @@ interface Props {
 }
 
 const PokemonFacts: React.FC<Props> = ({ pokemon }) => (
-  <Box className="PokemonFacts-root h-full" mx="auto">
-    <Paper className="h-full" elevation={4}>
-      <Box p={2}>
+  <Box className="PokemonFacts-root" mx="auto">
+    <Paper className="size-full" elevation={4}>
+      <Box className="size-full" p={2}>
         <ul>
           <li>
             <strong>ID:</strong>

@@ -12,8 +12,8 @@ const PokedexTile: React.FC<Props> = ({ pokemon }) => {
 
   return (
     <Box className="PokemonCard-root" mx="auto">
-      <Paper elevation={4}>
-        <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+      <Paper className="size-full" elevation={4}>
+        <Box className="size-full" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
 
           <Box>
             <img className="PokemonCard-img" src={pokemon.artwork} alt={displayName} />
