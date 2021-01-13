@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Grid } from "@material-ui/core";
+import React, { useState } from "react";
+import { Box, Grid, TextField } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import PokemonCard from "./PokemonCard";
@@ -18,16 +18,37 @@ const FETCH_POKEDEX_LIST_VIEW = gql`
 `;
 
 const PokedexView: React.FC = () => {
+  const [filter, setFilter] = useState("");
+
   const {
     loading,
-    data: pokemonList,
+    data,
     error,
   } = useQuery<FetchPokedexListView>(FETCH_POKEDEX_LIST_VIEW);
 
   if (loading) return <LoadingScreen />;
-  if (error || !pokemonList) return <div>ERROR</div>;
+  if (error || !data) return <div>ERROR</div>;
+
+  const pokemonList = !filter && data
+    ? data.allPokemon
+    : data.allPokemon.filter((pokemon) => (
+      pokemon.id === parseInt(filter, 10)
+      || pokemon.name.toLowerCase().includes(filter.toLowerCase())
+      || pokemon.types.some((type) => type.toLowerCase().includes(filter.toLowerCase()))
+    ));
+
   return (
     <Box>
+      <TextField
+        className="PokedexListView-search"
+        variant="outlined"
+        label="Filter Pokémon by ID, Name, or Type"
+        margin="normal"
+        value={filter}
+        onChange={({ target }) => setFilter(target.value)}
+        fullWidth
+      />
+
       <Grid
         container
         direction="row"
@@ -35,7 +56,7 @@ const PokedexView: React.FC = () => {
         alignItems="center"
         spacing={10}
       >
-        {pokemonList.allPokemon.map((pokemon) => (
+        {pokemonList.map((pokemon) => (
           <Grid
             item
             className="PokedexListView-Grid-item"
