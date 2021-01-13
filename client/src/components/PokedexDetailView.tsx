@@ -37,11 +37,9 @@ const PokemonDetailView: React.FC = () => {
   if (error || !data || !data.pokemon) return <div>ERROR</div>;
 
   return (
-    <Box position="relative" className="PokedexDetailView-root" display="flex" flexDirection="row" justifyContent="space-between" alignItems="center">
-
+    <Box className="PokedexDetailView-root">
       <PokemonCard pokemon={data?.pokemon} />
       <PokemonFacts pokemon={data?.pokemon} />
-
     </Box>
   );
 };
