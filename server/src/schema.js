@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server')
 
 const typeDefs = gql`
   type Pokemon {
@@ -17,6 +17,6 @@ const typeDefs = gql`
       id: Int!
     ): Pokemon
   }
-`;
+`
 
-module.exports = typeDefs;
+module.exports = typeDefs
