@@ -33,22 +33,15 @@ const PokedexView: React.FC = () => {
     ? data.allPokemon
     : data.allPokemon.filter((pokemon) => (
       pokemon.id === parseInt(filter, 10)
-      || pokemon.name.toLowerCase().includes(filter.toLowerCase())
-      || pokemon.types.some((type) => type.toLowerCase().includes(filter.toLowerCase()))
+    || pokemon.name.toLowerCase().includes(filter.toLowerCase())
+    || pokemon.types.some((type) => type.toLowerCase().includes(filter.toLowerCase()))
     ));
 
-  return (
-    <Box>
-      <TextField
-        className="PokedexListView-search"
-        variant="outlined"
-        label="Filter Pokémon by ID, Name, or Type"
-        margin="normal"
-        value={filter}
-        onChange={({ target }) => setFilter(target.value)}
-        fullWidth
-      />
-
+  const displayPokemonList = () => {
+    if (pokemonList.length === 0) {
+      return <div>No search results</div>;
+    }
+    return (
       <Grid
         container
         direction="row"
@@ -71,6 +64,22 @@ const PokedexView: React.FC = () => {
           </Grid>
         ))}
       </Grid>
+    );
+  };
+
+  return (
+    <Box>
+      <TextField
+        className="PokedexListView-search"
+        variant="outlined"
+        label="Filter Pokémon by ID, Name, or Type"
+        margin="normal"
+        value={filter}
+        onChange={({ target }) => setFilter(target.value)}
+        fullWidth
+      />
+
+      {displayPokemonList()}
     </Box>
   );
 };
