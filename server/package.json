@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=dev nodemon index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
     "start": "NODE_ENV=production node index.js",
     "build:ui": "rm -rf build && cd ../client && npm run build && cp -r build ../server/",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "cy:open": "cypress open",
+    "start:test": "NODE_ENV=test node index.js"
   },
   "author": "",
   "license": "MIT",
@@ -25,8 +27,10 @@
     "graphql": "^15.4.0"
   },
   "devDependencies": {
+    "cypress": "^6.2.1",
     "eslint": "^7.17.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.6"
   }

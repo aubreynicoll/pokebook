@@ -2,10 +2,14 @@
     "env": {
         "commonjs": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "cypress/globals": true
     },
     "extends": [
         "airbnb-base"
+    ],
+    "plugins": [
+      "cypress"
     ],
     "parserOptions": {
         "ecmaVersion": 12
