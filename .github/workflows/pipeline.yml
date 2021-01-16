@@ -35,7 +35,7 @@ jobs:
         run: cd server && npm run build:ui
 
       - name: E2E Tests
-        uses: cypress-io/githubs-action@v2
+        uses: cypress-io/github-action@v2
         with:
           start: cd server && npm run start:test
           command: cd server && npm run cy:run
