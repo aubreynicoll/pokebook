@@ -19,14 +19,15 @@ class PokemonAPI extends RESTDataSource {
   }
 
   async getAllPokemon() {
-    const params = {
-      limit: 150,
+    const maxId = 150
+
+    const idArray = []
+
+    for (let i = 1; i <= maxId; i++) {
+      idArray.push(i)
     }
-    const { results } = await this.get('/pokemon', params)
 
-    const data = await Promise.all(results.map(({ url }) => this.get(url)))
-
-    return data.map((object) => PokemonAPI.pokemonReducer(object))
+    return Promise.all(idArray.map(id => this.getPokemonById(id)))
   }
 
   async getPokemonById(id) {
