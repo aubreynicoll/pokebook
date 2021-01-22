@@ -44,7 +44,7 @@ const PokedexView: React.FC = () => {
     return (
       <Box className="PokedexListView-grid-container">
         {pokemonList.map((pokemon) => (
-          <Box className="PokedexListView-grid-item">
+          <Box key={pokemon.id} className="PokedexListView-grid-item">
             <Link to={`/pokemon/${pokemon.id}`}>
               <PokemonCard pokemon={pokemon} />
             </Link>
