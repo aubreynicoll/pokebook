@@ -7,6 +7,10 @@ a {
   text-decoration: none;
 }
 
+.MuiAppBar-root {
+  margin-bottom: 3.2rem;
+}
+
 .LoadingScreen-root {
   text-align: center;
 }
