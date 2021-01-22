@@ -69,15 +69,16 @@ const PokedexView: React.FC = () => {
 
   return (
     <Box>
-      <TextField
-        className="PokedexListView-search"
-        variant="outlined"
-        label="Filter Pokémon by ID, Name, or Type"
-        margin="normal"
-        value={filter}
-        onChange={({ target }) => setFilter(target.value)}
-        fullWidth
-      />
+      <Box className="PokedexListView-searchbar">
+        <TextField
+          variant="outlined"
+          label="Filter Pokémon by ID, Name, or Type"
+          margin="normal"
+          value={filter}
+          onChange={({ target }) => setFilter(target.value)}
+          fullWidth
+        />
+      </Box>
 
       {displayPokemonList()}
     </Box>
