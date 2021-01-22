@@ -23,11 +23,11 @@ class PokemonAPI extends RESTDataSource {
 
     const idArray = []
 
-    for (let i = 1; i <= maxId; i++) {
+    for (let i = 1; i <= maxId; i += 1) {
       idArray.push(i)
     }
 
-    return Promise.all(idArray.map(id => this.getPokemonById(id)))
+    return Promise.all(idArray.map((id) => this.getPokemonById(id)))
   }
 
   async getPokemonById(id) {
