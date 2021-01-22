@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Grid, TextField } from "@material-ui/core";
+import { Box, TextField } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import PokemonCard from "./PokemonCard";
@@ -42,28 +42,15 @@ const PokedexView: React.FC = () => {
       return <div>No search results</div>;
     }
     return (
-      <Grid
-        container
-        direction="row"
-        justify="space-between"
-        alignItems="center"
-        spacing={10}
-      >
+      <Box className="PokedexListView-grid-container">
         {pokemonList.map((pokemon) => (
-          <Grid
-            item
-            className="PokedexListView-Grid-item"
-            xs={12}
-            md={6}
-            lg={4}
-            key={pokemon.id}
-          >
+          <Box className="PokedexListView-grid-item">
             <Link to={`/pokemon/${pokemon.id}`}>
               <PokemonCard pokemon={pokemon} />
             </Link>
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     );
   };
 
