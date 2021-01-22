@@ -15,7 +15,6 @@ a {
   width: 10%;
   animation: roll 2s infinite;
   animation-timing-function: linear;
-  /* transform: rotate(30deg); */
 }
 
 @keyframes roll {
@@ -60,6 +59,20 @@ a {
   }
 }
 
+.PokedexListView-searchbar {
+  margin: 3.2rem auto;
+}
+
+.PokedexListView-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(35.2rem, 1fr));
+  row-gap: 6.4rem;
+}
+
+.PokedexListView-grid-item {
+  content: "";
+}
+
 .PokemonCard-root {
   width: 320px;
   height: 412px;
@@ -67,19 +80,15 @@ a {
   transition: all 0.25s ease;
 }
 
-.PokedexListView-Grid-item .PokemonCard-root:hover {
-  transform: scale(1.1);
-  box-shadow: 5px 15px 20px rgba(0,0,0,0.25);
-}
-
-.PokedexListView-searchbar {
-  margin: 3.2rem auto;
-}
-
 .PokemonCard-img {
   display: block;
   margin: 0 auto;
   width: 100%;
+}
+
+.PokedexListView-grid-item .PokemonCard-root:hover {
+  transform: scale(1.1);
+  box-shadow: 5px 15px 20px rgba(0,0,0,0.25);
 }
 
 .PokemonCard-typebutton {
