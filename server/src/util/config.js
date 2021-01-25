@@ -1,4 +1,4 @@
-require('dotenv')
+require('dotenv').config()
 
 let MONGO_DB_URI
 switch (process.env.NODE_ENV) {
