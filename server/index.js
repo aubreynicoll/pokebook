@@ -4,11 +4,14 @@ const cors = require('cors')
 const typeDefs = require('./src/schema')
 const resolvers = require('./src/resolvers')
 const PokemonAPI = require('./src/datasources/PokemonAPI')
+const DatabaseAPI = require('./src/datasources/DatabaseAPI')
 
 const pokemonAPI = new PokemonAPI()
+const databaseAPI = new DatabaseAPI()
 
 const dataSources = () => ({
   pokemonAPI,
+  databaseAPI,
 })
 
 const server = new ApolloServer({

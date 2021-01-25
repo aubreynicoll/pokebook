@@ -13,6 +13,9 @@ default:
   break
 }
 
+const { NODE_ENV } = process.env
+
 module.exports = {
   MONGO_DB_URI,
+  NODE_ENV,
 }
