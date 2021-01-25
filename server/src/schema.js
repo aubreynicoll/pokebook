@@ -11,6 +11,12 @@ const typeDefs = gql`
     moves: [String!]!
   }
 
+  type User {
+    id: ID!
+    username: String!
+    dateCreated: Date!
+  }
+
   type Query {
     allPokemon: [Pokemon!]!
     pokemon(
