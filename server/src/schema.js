@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server')
 
 const typeDefs = gql`
+  scalar Date
+  
   type Pokemon {
     id: Int!
     name: String!
