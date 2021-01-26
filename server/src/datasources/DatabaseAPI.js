@@ -23,13 +23,13 @@ class DatabaseAPI extends DataSource {
 
   // wishlist:
   async createUser({ username, password }) {
-    const passwordHash = await bcrypt.hash(password, 10)
-    const user = new User({
+    this.passwordHash = await bcrypt.hash(password, 10)
+    this.user = new User({
       username,
-      passwordHash,
+      passwordHash: this.passwordHash,
       dateCreated: new Date(),
     })
-    return user.save()
+    return this.user.save()
   }
 
   // async authenticateUser() {
@@ -37,13 +37,13 @@ class DatabaseAPI extends DataSource {
   // }
 
   async getAllUsers() {
-    const users = await User.find({})
-    return users
+    this.users = await User.find({})
+    return this.users
   }
 
   async getUserById(id) {
-    const user = await User.findById(id)
-    return user
+    this.user = await User.findById(id)
+    return this.user
   }
 }
 

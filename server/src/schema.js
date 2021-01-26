@@ -21,9 +21,23 @@ const typeDefs = gql`
 
   type Query {
     allPokemon: [Pokemon!]!
+
     pokemon(
       id: Int!
     ): Pokemon
+
+    allUsers: [User!]!
+
+    user(
+      id: ID!
+    ): User
+  }
+
+  type Mutation {
+    createUser(
+      username: String!
+      password: String!
+      ): User
   }
 `
 

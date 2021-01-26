@@ -10,8 +10,7 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 15,
     unique: true,
-    required:
-    true,
+    required: true,
   },
   dateCreated: {
     type: Date,

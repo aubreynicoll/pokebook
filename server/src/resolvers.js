@@ -22,6 +22,13 @@ const resolvers = {
   Query: {
     allPokemon: (root, args, { dataSources }) => dataSources.pokemonAPI.getAllPokemon(),
     pokemon: (root, args, { dataSources }) => dataSources.pokemonAPI.getPokemonById(args.id),
+    allUsers: (root, args, { dataSources }) => dataSources.databaseAPI.getAllUsers(),
+    user: (root, args, { dataSources }) => dataSources.databaseAPI.getUserById(args.id),
+  },
+  Mutation: {
+    createUser: (root, { username, password }, { dataSources }) => (
+      dataSources.databaseAPI.createUser({ username, password })
+    ),
   },
 }
 
