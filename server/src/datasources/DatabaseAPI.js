@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 const { DataSource } = require('apollo-datasource')
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
@@ -24,40 +25,39 @@ class DatabaseAPI extends DataSource {
     })
   }
 
-  // wishlist:
   async createUser({ username, password }) {
-    this.passwordHash = await bcrypt.hash(password, 10)
-    this.user = new User({
+    const passwordHash = await bcrypt.hash(password, 10)
+    const user = new User({
       username,
-      passwordHash: this.passwordHash,
+      passwordHash,
       dateCreated: new Date(),
     })
-    return this.user.save()
+    return user.save()
   }
 
   async authenticateUser({ username, password }) {
-    this.user = await User.findOne({ username })
-    this.passwordCorrect = await bcrypt.compare(password, this.user.passwordHash)
-    if (!this.user || !this.passwordCorrect) {
+    const user = await User.findOne({ username })
+    const passwordCorrect = await bcrypt.compare(password, this.user.passwordHash)
+    if (!user || !passwordCorrect) {
       throw new UserInputError('Invalid username or password')
     }
-    this.unsignedTokenValue = {
-      ...this.user,
+    const unsignedTokenValue = {
+      ...user,
     }
-    this.tokenValue = jwt.sign(this.unsignedTokenValue, JWT_SECRET)
+    const tokenValue = jwt.sign(unsignedTokenValue, JWT_SECRET)
     return {
-      value: `bearer ${this.tokenValue}`,
+      value: `bearer ${tokenValue}`,
     }
   }
 
   async getAllUsers() {
-    this.users = await User.find({})
-    return this.users
+    const users = await User.find({})
+    return users
   }
 
   async getUserById(id) {
-    this.user = await User.findById(id)
-    return this.user
+    const user = await User.findById(id)
+    return user
   }
 }
 
