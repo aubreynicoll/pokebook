@@ -13,9 +13,13 @@ default:
   break
 }
 
-const { NODE_ENV } = process.env
+const {
+  NODE_ENV,
+  JWT_SECRET,
+} = process.env
 
 module.exports = {
   MONGO_DB_URI,
   NODE_ENV,
+  JWT_SECRET,
 }

@@ -19,6 +19,10 @@ const typeDefs = gql`
     dateCreated: Date!
   }
 
+  type Token {
+    value: String!
+  }
+
   type Query {
     allPokemon: [Pokemon!]!
 
@@ -38,6 +42,11 @@ const typeDefs = gql`
       username: String!
       password: String!
       ): User
+
+      authenticateUser(
+        username: String!
+        password: String!
+      ): Token
   }
 `
 

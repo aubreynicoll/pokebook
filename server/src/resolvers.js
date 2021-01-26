@@ -29,6 +29,9 @@ const resolvers = {
     createUser: (root, { username, password }, { dataSources }) => (
       dataSources.databaseAPI.createUser({ username, password })
     ),
+    authenticateUser: (root, { username, password }, { dataSources }) => (
+      dataSources.databaseAPI.authenticateUser({ username, password })
+    ),
   },
 }
 
