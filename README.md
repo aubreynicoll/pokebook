@@ -2,30 +2,23 @@
 
 # PokéBook
 
-The Unofficial Pokémon-Themed Social Media Network
-
-### We're on Heroku!
-
-Visit us: [https://young-lowlands-97512.herokuapp.com/](https://young-lowlands-97512.herokuapp.com/)
+Fun while it lasted, however, I am no longer maintaining PokéBook and it has been removed from deployment.
 
 ## Motivation
 
 PokéBook is a non-commercial project for use in my personal portfolio.\
 The project's primary function is to showcase my proficiency with the technologies used within.
 
-## Technologies Utilized
+## Technologies Used
 
 * Typescript
 * React
 * Material-UI
 * GraphQL
-* And more on the way...
 
 ## Features
 
-PokéBook is a work-in-progress.\
-My first target is to develop a working Pokédex that includes the original 150 Pokémon.\
-Later, I plan on adding authentication and user profiles.
+PokéBook is a searchable pokédex featuring the original 150 pokémon.
 
 ## Credit
 
